@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/PeterCapo/flaskapp.svg?branch=develop)](https://travis-ci.org/PeterCapo/flaskapp)
