@@ -28,7 +28,7 @@ def create_app(config_name):
             CommandID = str(request.data.get('CommandID', ''))
             billrefno = str(request.data.get('billrefno', ''))
             refno = str(request.data.get('refno', ''))
-            if name and shortcode and msisdn and CommandID and billrefno and refno:
+            if name:
                 bucketlist = Bucketlist(name=name)
                 buckelist = Bucketlist(shortcode=shortcode)
                 buckelist = Bucketlist(msisdn=msisdn)
