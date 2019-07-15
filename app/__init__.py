@@ -23,14 +23,29 @@ def create_app(config_name):
     def bucketlists():
         if request.method == "POST":
             name = str(request.data.get('name', ''))
-            if name:
+            shortcode = int(request.data.get('shortcode', ''))
+            msisdn = int(request.data.get('msisdn', ''))
+            CommandID = str(request.data.get('CommandID', ''))
+            billrefno = str(request.data.get('billrefno', ''))
+            refno = str(request.data.get('refno', ''))
+            if name, shortcode, msisdn, CommandID, billrefno, refno:
                 bucketlist = Bucketlist(name=name)
+                buckelist = Bucketlist(shortcode=shortcode)
+                buckelist = Bucketlist(msisdn=msisdn)
+                buckelist = Bucketlist(CommandID=CommandID)
+                billrefno = Bucketlist(billrefno=billrefno)
+                refno = Bucketlist(refno)
                 bucketlist.save()
                 response = jsonify({
                     'id': bucketlist.id,
                     'name': bucketlist.name,
                     'date_created': bucketlist.date_created,
-                    'date_modified': bucketlist.date_modified
+                    'date_modified': bucketlist.date_modified,
+                    'shortcode': buckelist.shortcode,
+                    'msisdn': buckelist.msisdn,
+                    'CommandID': buckelist.CommandID,
+                    'billrefno': buckelist.billrefno,
+                    'refno': buckelist.refno
                 })
                 response.status_code = 201
                 return response
@@ -44,7 +59,12 @@ def create_app(config_name):
                     'id': bucketlist.id,
                     'name': bucketlist.name,
                     'date_created': bucketlist.date_created,
-                    'date_modified': bucketlist.date_modified
+                    'date_modified': bucketlist.date_modified,
+                    'shortcode': buckelist.shortcode,
+                    'msisdn': buckelist.msisdn,
+                    'CommandID': buckelist.CommandID,
+                    'billrefno': buckelist.billrefno,
+                    'refno': buckelist.refno
                 }
                 results.append(obj)
             response = jsonify(results)
@@ -68,13 +88,28 @@ def create_app(config_name):
 
         elif request.method == 'PUT':
             name = str(request.data.get('name', ''))
+            shortcode = int(request.data.get('shortcode', ''))
+            msisdn = int(request.data.get('msisdn', ''))
+            CommandID = str(request.data.get('CommandID', ''))
+            billrefno = str(request.data.get('billrefno', ''))
+            refno = str(request.data.get('refno', ''))
             bucketlist.name = name
+            buckelist.shortcode = shortcode
+            buckelist.msisdn = msisdn
+            buckelist.CommandID = CommandID
+            buckelist.billrefno = billrefno
+            buckelist.refno = refno
             bucketlist.save()
             response = jsonify({
                 'id': bucketlist.id,
                 'name': bucketlist.name,
                 'date_created': bucketlist.date_created,
-                'date_modified': bucketlist.date_modified
+                'date_modified': bucketlist.date_modified,
+                'shortcode': buckelist.shortcode,
+                'msisdn': buckelist.msisdn,
+                'CommandID': buckelist.CommandID,
+                'billrefno': buckelist.billrefno,
+                'refno': buckelist.refno
             })
             response.status_code = 200
             return response
@@ -84,7 +119,12 @@ def create_app(config_name):
                 'id': bucketlist.id,
                 'name': bucketlist.name,
                 'date_created': bucketlist.date_created,
-                'date_modified': bucketlist.date_modified
+                'date_modified': bucketlist.date_modified,
+                'shortcode': buckelist.shortcode,
+                'msisdn': buckelist.msisdn,
+                'CommandID': buckelist.CommandID,
+                'billrefno': buckelist.billrefno,
+                'refno': buckelist.refno
             })
             response.status_code = 200
             return response
