@@ -25,14 +25,14 @@ def create_app(config_name):
             name = str(request.data.get('name', ''))
             shortcode = int(request.data.get('shortcode', ''))
             msisdn = int(request.data.get('msisdn', ''))
-            CommandID = str(request.data.get('CommandID', ''))
+            commandid = str(request.data.get('commandid', ''))
             billrefno = str(request.data.get('billrefno', ''))
             refno = str(request.data.get('refno', ''))
             if name:
                 bucketlist = Bucketlist(name=name)
                 buckelist = Bucketlist(shortcode=shortcode)
                 buckelist = Bucketlist(msisdn=msisdn)
-                buckelist = Bucketlist(CommandID=CommandID)
+                buckelist = Bucketlist(commandid=commandid)
                 billrefno = Bucketlist(billrefno=billrefno)
                 refno = Bucketlist(refno)
                 bucketlist.save()
@@ -43,7 +43,7 @@ def create_app(config_name):
                     'date_modified': bucketlist.date_modified,
                     'shortcode': buckelist.shortcode,
                     'msisdn': buckelist.msisdn,
-                    'CommandID': buckelist.CommandID,
+                    'commandid': buckelist.commandid,
                     'billrefno': buckelist.billrefno,
                     'refno': buckelist.refno
                 })
@@ -62,7 +62,7 @@ def create_app(config_name):
                     'date_modified': bucketlist.date_modified,
                     'shortcode': buckelist.shortcode,
                     'msisdn': buckelist.msisdn,
-                    'CommandID': buckelist.CommandID,
+                    'commandid': buckelist.commandid,
                     'billrefno': buckelist.billrefno,
                     'refno': buckelist.refno
                 }
@@ -90,13 +90,13 @@ def create_app(config_name):
             name = str(request.data.get('name', ''))
             shortcode = int(request.data.get('shortcode', ''))
             msisdn = int(request.data.get('msisdn', ''))
-            CommandID = str(request.data.get('CommandID', ''))
+            commandid = str(request.data.get('commandid', ''))
             billrefno = str(request.data.get('billrefno', ''))
             refno = str(request.data.get('refno', ''))
             bucketlist.name = name
             buckelist.shortcode = shortcode
             buckelist.msisdn = msisdn
-            buckelist.CommandID = CommandID
+            buckelist.commandid = commandid
             buckelist.billrefno = billrefno
             buckelist.refno = refno
             bucketlist.save()
@@ -107,7 +107,7 @@ def create_app(config_name):
                 'date_modified': bucketlist.date_modified,
                 'shortcode': buckelist.shortcode,
                 'msisdn': buckelist.msisdn,
-                'CommandID': buckelist.CommandID,
+                'commandid': buckelist.commandid,
                 'billrefno': buckelist.billrefno,
                 'refno': buckelist.refno
             })
@@ -122,7 +122,7 @@ def create_app(config_name):
                 'date_modified': bucketlist.date_modified,
                 'shortcode': buckelist.shortcode,
                 'msisdn': buckelist.msisdn,
-                'CommandID': buckelist.CommandID,
+                'commandid': buckelist.commandid,
                 'billrefno': buckelist.billrefno,
                 'refno': buckelist.refno
             })
