@@ -12,11 +12,11 @@ class Bucketlist(db.Model):
     date_modified = db.Column(
         db.DateTime, default=db.func.current_timestamp(),
         onupdate=db.func.current_timestamp())
-    shortcode = db.column(db.string(255))
-    msisdn = db.column(db.integer)
-    commandid = db.column(db.String(255))
-    billrefnumber = db.column(db.string(255))
-    refno = db.column(db.string(255))
+    shortcode = db.Column(db.String(255))
+    msisdn = db.Column(db.Integer)
+    commandid = db.Column(db.String(255))
+    billrefnumber = db.Column(db.String(255))
+    refno = db.Column(db.String(255))
 
     def __init__(self, name):
         """initialize with name."""
