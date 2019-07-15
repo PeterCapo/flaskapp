@@ -12,7 +12,7 @@ class Bucketlist(db.Model):
     date_modified = db.Column(
         db.DateTime, default=db.func.current_timestamp(),
         onupdate=db.func.current_timestamp())
-    shortcode = db.Column(db.String(255))
+    shortcode = db.Column(db.Integer)
     msisdn = db.Column(db.Integer)
     CommandID = db.Column(db.String(255))
     billrefnumber = db.Column(db.String(255))
